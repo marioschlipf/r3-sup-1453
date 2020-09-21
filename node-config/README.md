@@ -1,0 +1,1 @@
+This is the node configuration that was used that can reproduce the issue.
