@@ -29,6 +29,4 @@ open class RPCConnection(val configuration: RPCConfiguration) {
     fun close() {
         rpcConnection.notifyServerAndClose()
     }
-
-
 }

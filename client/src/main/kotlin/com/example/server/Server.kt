@@ -13,12 +13,10 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 )
 open class Server {
     @Bean
-    open fun mappingJackson2HttpMessageConverter(@Autowired rpcConnection: RPCConnection): MappingJackson2HttpMessageConverter {
-        val mapper = JacksonSupport.createDefaultMapper(rpcConnection.proxy)
-        val converter = MappingJackson2HttpMessageConverter()
-        converter.objectMapper = mapper
-        return converter
-    }
+    open fun mappingJackson2HttpMessageConverter(@Autowired rpcConnection: RPCConnection) =
+        MappingJackson2HttpMessageConverter().apply {
+            objectMapper = JacksonSupport.createDefaultMapper(rpcConnection.proxy)
+        }
 }
 
 fun main(args: Array<String>) {
